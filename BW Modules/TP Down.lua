@@ -1,3 +1,10 @@
+--[[
+BEDWARS UNIVERSAL TP DOWN
+-----------------------------------
+PASTE THIS SCRIPT UNDER THE FILE:
+"6872274481.lua" AT THE BOTTOM.
+YOU CAN USE ANY VAPE SCRIPT/CONFIG
+]]
 runcode(function()
     local TPDown
     local tpConnection
