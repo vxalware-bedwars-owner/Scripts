@@ -40,7 +40,8 @@ run(function()
                     task.wait()
                 until not ClientCrasher.Enabled
             end
-        end
+        end,
+        HoverText = "Crashes everyone's game"
     })
 
     Method = ClientCrasher:CreateDropdown({
