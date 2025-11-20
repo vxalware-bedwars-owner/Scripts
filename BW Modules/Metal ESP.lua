@@ -1,3 +1,10 @@
+--[[
+METAL DETECTOR ESP
+-----------------------------------
+PASTE THIS SCRIPT UNDER THE FILE:
+"6872274481.lua" AT THE BOTTOM.
+YOU CAN USE ANY VAPE SCRIPT/CONFIG
+]]
 runcode(function()
     local MetalESP
 
@@ -11,3 +18,4 @@ runcode(function()
         HoverText = "Metal Detector ESP"
     })
 end)
+-- YOU CANNOT UNEXECUTE THIS SCRIPT BTW
