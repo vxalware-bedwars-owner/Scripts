@@ -1,5 +1,5 @@
 --[[
-BEDWARS CLIENT CRASHER + ANTICRASH
+BEDWARS INFINITE JUMP (UNIVERSAL)
 -----------------------------------
 PASTE THIS SCRIPT UNDER THE FILE:
 "6872274481.lua" AT THE BOTTOM.
@@ -9,8 +9,8 @@ run(function()
     local InfJump
     local connection
 
-    InfJump = vape.Categories.Minigames:CreateModule({
-        Name = "InfJump",
+    InfJump = vape.Categories.Blatant:CreateModule({
+        Name = "Inf Jump",
         Function = function(call)
             if enabled then
                 connection = game:GetService("UserInputService").JumpRequest:Connect(function()
