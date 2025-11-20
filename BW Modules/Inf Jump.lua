@@ -1,3 +1,10 @@
+--[[
+BEDWARS CLIENT CRASHER + ANTICRASH
+-----------------------------------
+PASTE THIS SCRIPT UNDER THE FILE:
+"6872274481.lua" AT THE BOTTOM.
+YOU CAN USE ANY VAPE SCRIPT/CONFIG
+]]
 run(function()
     local InfJump
     local connection
