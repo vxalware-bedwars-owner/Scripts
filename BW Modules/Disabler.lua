@@ -52,6 +52,6 @@ run(function()
                 end
             end
         end,
-        HoverText = "Jade Disabler"
+        Tooltip = "Jade Disabler"
     })
 end)
