@@ -15,7 +15,7 @@ run(function()
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/void2realyt/RainWare-V6-Vxpe-Loader-Script/refs/heads/main/RainWare%20V6%20Metal%20Detector%20ESP",true))()
             end
         end,
-        HoverText = "Metal Detector ESP"
+        Tooltip = "Metal Detector ESP"
     })
 end)
 -- YOU CANNOT UNEXECUTE THIS SCRIPT BTW
