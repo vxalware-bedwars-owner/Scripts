@@ -41,7 +41,7 @@ run(function()
                 until not ClientCrasher.Enabled
             end
         end,
-        HoverText = "Crashes everyone's game"
+        Tooltip = "Crashes everyone's game"
     })
 
     Method = ClientCrasher:CreateDropdown({
