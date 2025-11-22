@@ -28,6 +28,6 @@ run(function()
                 end
             end
         end,
-        HoverText = "Jump Infinitely!"
+        Tooltip = "Jump Infinitely!"
     })
 end)
