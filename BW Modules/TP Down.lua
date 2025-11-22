@@ -107,6 +107,6 @@ run(function()
                 end
             end
         end,
-        HoverText = "Sends you to the ground every 2.3 seconds"
+        Tooltip = "Sends you to the ground every 2.3 seconds"
     })
 end)
