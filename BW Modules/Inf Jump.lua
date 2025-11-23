@@ -6,19 +6,20 @@ PASTE THIS SCRIPT UNDER THE FILE:
 YOU CAN USE ANY VAPE SCRIPT/CONFIG
 ]]
 run(function()
-    local InfJump
     local connection
 
     InfJump = vape.Categories.Blatant:CreateModule({
         Name = "Inf Jump",
-        Function = function(call)
+        Function = function(enabled)
             if enabled then
                 connection = game:GetService("UserInputService").JumpRequest:Connect(function()
                     local player = game:GetService("Players").LocalPlayer
-                    local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
-                    if humanoid then
-                        humanoid.Jump = true
-                        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+                    local character = player.Character
+                    if character then
+                        local humanoid = character:FindFirstChildOfClass("Humanoid")
+                        if humanoid then
+                            humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+                        end
                     end
                 end)
             else
