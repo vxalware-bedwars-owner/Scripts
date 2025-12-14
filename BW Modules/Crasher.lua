@@ -4,13 +4,16 @@ BEDWARS CLIENT CRASHER + ANTICRASH
 PASTE THIS SCRIPT UNDER THE FILE:
 "6872274481.lua" AT THE BOTTOM.
 YOU CAN USE ANY VAPE SCRIPT/CONFIG
+-----------------------------------
+LINE: ??? | SKIDDED FROM 
+QP PRIVATE NO RIGHTS RESERVED :D
 ]]
 run(function()
     local ClientCrasher
     local Method
 
     ClientCrasher = vape.Categories.Minigames:CreateModule({
-        Name = 'Client Crasher',
+        Name = 'Crasher',
         Function = function(call)
             if call then
                 for _, v in getconnections(game:GetService("ReplicatedStorage"):WaitForChild("events-@easy-games/game-core:shared/game-core-networking@getEvents.Events"):WaitForChild("abilityUsed").OnClientEvent) do
