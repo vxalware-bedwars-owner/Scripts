@@ -1,6 +1,8 @@
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))() -- loads Wind UI
-WindUI:SetNotificationLower(false) -- sets notifications lower
+-- loads Wind UI | Sets notifications lower
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+WindUI:SetNotificationLower(false)
 
+-- Window
 local Window = WindUI:CreateWindow({
     Title = "Example UI",
     Icon = "moon-star",
@@ -31,11 +33,12 @@ local Window = WindUI:CreateWindow({
         -- Put key here
         Key = { "1234", "5678" },
         Note = "Example Key System.",
-        URL = "https://youtube.com/",
+        URL = "https://pastebin.com/nXMnFUex",
         SaveKey = true, -- automatically save and load the key.
     },
-}) -- Window
+})
 
+-- Extras
 Window:SetToggleKey(Enum.KeyCode.K)
 Window:SetIconSize(26)
 Window:EditOpenButton({
@@ -50,14 +53,16 @@ Window:EditOpenButton({
     OnlyMobile = true,
     Enabled = true,
     Draggable = true,
-}) -- Extras
+})
 
+-- Main Tab
 local MainTab = Window:Tab({
     Title = "Main",
     Icon = "circle-user-round",
     Locked = false,
-}) -- Main Tab
+})
 
+-- Section
 local Section = MainTab:Section({ 
     Title = "Section",
     Box = false,
@@ -65,8 +70,9 @@ local Section = MainTab:Section({
     TextXAlignment = "Left",
     TextSize = 17,
     Opened = true,
-}) -- Section
+})
 
+-- Button
 local Button = MainTab:Button({
     Title = "Button",
     Desc = "A button",
@@ -74,8 +80,9 @@ local Button = MainTab:Button({
     Callback = function()
         print("Clicked button")
     end
-}) -- Button
+})
 
+-- Colourpicker
 local Colorpicker = MainTab:Colorpicker({
     Title = "Colorpicker",
     Desc = "A Colorpicker",
@@ -85,8 +92,9 @@ local Colorpicker = MainTab:Colorpicker({
     Callback = function(color) 
         print("color: " .. tostring(color))
     end
-}) -- Colourpicker
+})
 
+-- Dropdown
 local Dropdown = MainTab:Dropdown({
     Title = "Multi Dropdown",
     Values = { "None", "Example 1", "Example 2" },
@@ -107,8 +115,9 @@ local Dropdown = MainTab:Dropdown({
             print("Example 2")
         end
     end
-}) -- Dropdown
+})
 
+-- Input
 local Input = MainTab:Input({
     Title = "Input",
     Desc = "An Input",
@@ -119,8 +128,9 @@ local Input = MainTab:Input({
     Callback = function(input) 
         print("text entered: " .. input)
     end
-}) -- Input
+})
 
+-- Slider
 local Slider = MainTab:Slider({
     Title = "WalkSpeed",
     Step = 1,
@@ -141,8 +151,9 @@ local Slider = MainTab:Slider({
             warn("Humanoid not found")
         end
     end
-}) -- Slider
+})
 
+-- Toggle
 local Toggle = MainTab:Toggle({
     Title = "Toggle",
     Desc = "A Toggle",
@@ -156,14 +167,16 @@ local Toggle = MainTab:Toggle({
             print("unexecuted")
         end
     end
-}) -- Toggle
+})
 
+-- Credits Tab
 local CreditsTab = Window:Tab({
     Title = "Credits",
     Icon = "crown",
     Locked = false,
-}) -- Credits Tab
+})
 
+-- Paragraph
 local Paragraph = CreditsTab:Paragraph({
     Title = "Credits",
     Desc = "This example is made by SynthX. All credits go to footagesus for making this UI Library",
@@ -179,12 +192,13 @@ local Paragraph = CreditsTab:Paragraph({
             Callback = function() print("Thanks for using!") end,
         }
     }
-}) -- Paragraph
+})
 
+-- Notification
 WindUI:Notify({
     Title = "Finished Loading!",
     Content = "Thank you for using Wind UI! Press 'K' to toggle GUI!",
     Duration = 5,
     Icon = "check",
-}) -- Notification
+})
 -- This is just an example. Official doccumentation with other features may be found at https://footagesus.github.io/WindUI-Docs/
