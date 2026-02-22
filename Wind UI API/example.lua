@@ -4,7 +4,7 @@ local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/rel
 local Window = WindUI:CreateWindow({
     Title = "Wind UI API",
     Icon = "moon-star",
-    Author = "SynthX (multi)",
+    Author = "SynthX",
     Folder = "WindUIAPIs",
     
     Size = UDim2.fromOffset(580, 460),
@@ -101,7 +101,8 @@ if not hasFileApi then
 end
 
 -- runWithNotify API
-local _runWithNotify_firstRun = {}
+local _APIFirstRun = {}
+local _sliderNotifHandler = {}
 local function runWithNotify(title, fn, opts)
     opts = opts or {}
     local kind = opts.kind
@@ -111,8 +112,8 @@ local function runWithNotify(title, fn, opts)
     local suppressNone = opts.suppressNone
 
     -- Silent run | Error run
-    if not _runWithNotify_firstRun[title] then
-        _runWithNotify_firstRun[title] = true
+    if not _APIFirstRun[title] then
+        _APIFirstRun[title] = true
 
         if kind == "dropdown" or kind == "toggle" then
             local ok, err = pcall(fn)
@@ -160,13 +161,13 @@ local function runWithNotify(title, fn, opts)
         if state then
             WindUI:Notify({
                 Title = "Success",
-                Content = "Successfully executed "..tostring(title),
+                Content = "Successfully enabled "..tostring(title),
                 Duration = 1.5,
             })
         else
             WindUI:Notify({
                 Title = "Success",
-                Content = "Successfully unexecuted "..tostring(title),
+                Content = "Successfully disabled "..tostring(title),
                 Duration = 1.5,
             })
         end
@@ -175,16 +176,25 @@ local function runWithNotify(title, fn, opts)
 
     -- Success run | Slider
     if kind == "slider" and type(getValue) == "function" then
-        local value = getValue()
-        local valueStr = tostring(value)
-        if type(value) == "number" then
-            valueStr = tostring(tonumber(string.format("%.6f", value))):gsub("%.?0+$", "")
+        if _sliderNotifHandler[title] then
+            task.cancel(_sliderNotifHandler[title])
         end
-        WindUI:Notify({
-            Title = "Success",
-            Content = tostring(title) .. " set to " .. valueStr,
-            Duration = 1.5,
-        })
+
+        _sliderNotifHandler[title] = task.delay(0.25, function()
+            local value = getValue()
+            local valueStr = tostring(value)
+            if type(value) == "number" then
+                valueStr = tostring(tonumber(string.format("%.6f", value))):gsub("%.?0+$", "")
+            end
+
+            WindUI:Notify({
+                Title = "Success",
+                Content = tostring(title) .. " set to " .. valueStr,
+                Duration = 1.5,
+            })
+
+            _sliderNotifHandler[title] = nil
+        end)
         return
     end
 
