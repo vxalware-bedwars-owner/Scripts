@@ -1,7 +1,7 @@
 -- safeWriteConfig API
 local HttpService = game:GetService("HttpService")
-local folderName = "Vxalware"
-local configFilePath = folderName .. "/VXConfig.json"
+local folderName = "foldername" -- put the name you gave for your Wind UI folder
+local configFilePath = folderName .. "/filename.json"
 
 local hasFileApi = (type(isfolder) == "function")
                and (type(makefolder) == "function")
