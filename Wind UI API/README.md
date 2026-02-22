@@ -105,10 +105,12 @@ local Dropdown = MainTab:Dropdown({
 local MainSaved = config.slider["example"]
 local Slider = MainTab:Slider({
     Title = "Your title",
-    Min = 10,
-    Max = 100,
-    Default = MainSaved or 50,
-    Increment = 10,
+    Step = 10,
+    Value = {
+        Min = 10,
+        Max = 100,
+        Default = MainSaved or 50,
+    },
     Callback = function(value)
         runWithNotify("Your message", function()
             print(value)
@@ -118,19 +120,6 @@ local Slider = MainTab:Slider({
         })
         config.slider["example"] = value
         safeWriteConfig()
-
-        task.defer(function()
-            pcall(function()
-                local saved = config.slider["example"]
-                if type(saved) == "number" then
-                    if Slider.Set then
-                        Slider:Set(saved)
-                    elseif Slider.SetValue then
-                        Slider:SetValue(saved)
-                    end
-                end
-            end)
-        end)
     end
 })
 ```
