@@ -1,7 +1,7 @@
--- loads Orion
-local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhdat4461/GUI-Library/refs/heads/main/Orion%20Library.lua", true))()
+--> loads Orion
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhdat4461/GUI-Library/refs/heads/main/Orion%20Library.lua",true))()
 
--- Window
+--> Create Window
 local Window = OrionLib:MakeWindow({
 	Name = "Orion Example",
 	HidePremium = false,
@@ -17,12 +17,8 @@ local MainTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
--- Section
-local Section = MainTab:AddSection({
-	Name = "Section"
-})
-
--- Button
+-- Section & Button
+local Section = MainTab:AddSection({ Name = "Section" })
 MainTab:AddButton({
 	Name = "Button",
 	Callback = function()
@@ -43,7 +39,7 @@ MainTab:AddToggle({
 	end    
 })
 
--- Colourpicker
+-- Colorpicker
 MainTab:AddColorpicker({
 	Name = "Colorpicker",
 	Default = Color3.fromRGB(0, 0, 255),
@@ -69,8 +65,6 @@ MainTab:AddSlider({
 		if humanoid then
 			humanoid.WalkSpeed = value
 			print("WalkSpeed set to:", value)
-		else
-			warn("Humanoid not found")
 		end
 	end    
 })
@@ -117,6 +111,6 @@ OrionLib:MakeNotification({
 	Time = 5
 })
 
--- Finish script
+--> Finish script
 OrionLib:Init()
 -- This is just an example. Official doccumentation with other features may be found at https://github.com/jensonhirst/Orion/blob/main/Documentation.md
