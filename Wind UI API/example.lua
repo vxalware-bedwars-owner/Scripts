@@ -17,12 +17,18 @@ local Window = WindUI:CreateWindow({
     BackgroundImageTransparency = 0.42,
     HideSearchBar = true,
     ScrollBarEnabled = true,
-    
+
     User = {
         Enabled = true,
-        Anonymous = true,
+        Anonymous = false,
         Callback = function()
-            print("user check")
+            local Players = game:GetService("Players")
+            local player = Players.LocalPlayer
+            if player then
+                local username = player.Name
+                local displayName = player.DisplayName
+                print("Username: " .. username .. "\nDisplay Name: " .. displayName)
+            end
         end,
     },
 })
@@ -206,10 +212,8 @@ local function runWithNotify(title, fn, opts)
     })
 end
 
--- Main tab
+-- Main tab & Button example
 local MainTab = Window:Tab({ Title = "Main", Icon = "circle-user-round" })
-
--- Buttons
 local Button = MainTab:Button({
     Title = "Your title",
     Callback = function()
@@ -219,7 +223,7 @@ local Button = MainTab:Button({
     end
 })
 
--- Toggles
+-- Toggle example
 local MainSaved = config.toggle["example"]
 local Toggle = MainTab:Toggle({
     Title = "Your title",
@@ -239,7 +243,6 @@ local Toggle = MainTab:Toggle({
         })
         config.toggle["example"] = (state == true)
         safeWriteConfig()
-
         task.defer(function()
             pcall(function()
                 local saved = config.toggle["example"]
@@ -255,7 +258,7 @@ local Toggle = MainTab:Toggle({
     end
 })
 
--- Dropdowns
+-- Dropdown example
 local MainSaved = config.dropdown["example"]
 local Dropdown = MainTab:Dropdown({
     Title = "Your title",
@@ -280,7 +283,7 @@ local Dropdown = MainTab:Dropdown({
     end
 })
 
--- Sliders
+-- Slider example
 local MainSaved = config.slider["example"]
 local Slider = MainTab:Slider({
     Title = "Your title",
@@ -325,7 +328,7 @@ local Paragraph = CreditsTab:Paragraph({
 -- Notification
 WindUI:Notify({
     Title = "Successfully Loaded!",
-    Content = "Wind UI API Script",
+    Content = "Successfully loaded WindUI API Script. Press 'K' to togge the GUI",
     Duration = 5,
     Icon = "check"
 })
