@@ -1,4 +1,4 @@
---> Services <--
+--> Services
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local Lighting = game:GetService("Lighting")
@@ -20,7 +20,7 @@ local ToggleState = false
 --> Create ScreenGui
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = CoreGui
-ScreenGui.Name = "ScriptHub V3 Toggle Button"
+ScreenGui.Name = "ScriptHub V3 Toggle Button Skid"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.DisplayOrder = 999
 ScreenGui.Enabled = true 
