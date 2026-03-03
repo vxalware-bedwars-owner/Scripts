@@ -1,7 +1,7 @@
 -- safeWriteConfig API
 local HttpService = game:GetService("HttpService")
 local folderName = "foldername" -- put the name you gave for your Wind UI folder
-local configFilePath = folderName .. "/filename.json"
+local configFilePath = folderName .. "/filename.json" -- put your file name (no spaces)
 
 local hasFileApi = (type(isfolder) == "function")
                and (type(makefolder) == "function")
@@ -33,7 +33,6 @@ local function loadConfig()
         if ok and data then
             local succ, decoded = pcall(HttpService.JSONDecode, HttpService, data)
             if succ and type(decoded) == "table" then
-                -- keep defaults
                 config.dropdown = decoded.dropdown or config.dropdown
                 config.toggle = decoded.toggle or config.toggle
                 config.slider = decoded.slider or config.slider
