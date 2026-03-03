@@ -5,6 +5,7 @@
 The **Wind UI API** enhances your scripts by providing:
 * **Config saving**: Automatically save and load user preferences for the supported UI elements.
 * **Notifications**: Display customizable notifications to the player from your script.
+* **Version checking**: Lets the player know if they are using an updated script version.
 
 This API is designed to be simple, lightweight, and fully compatible with Wind UI.
 
@@ -20,6 +21,9 @@ Display notifications for elements on success or failure.
 
 ### 2. `safeWriteConfig`
 Automatically saves and loads settings for supported UI elements.
+
+### 3. `Wind UI VC`
+Issues customizable code depending on whether the player is using an updated version of the script.
 
 ## Element examples
 
@@ -56,7 +60,6 @@ local Toggle = MainTab:Toggle({
         })
         config.toggle["example"] = (state == true)
         safeWriteConfig()
-
         task.defer(function()
             pcall(function()
                 local saved = config.toggle["example"]
@@ -102,6 +105,7 @@ local Dropdown = MainTab:Dropdown({
 
 #### Sliders:
 ```lua
+-- Note: You may need to add specific code outside the slider to apply saved effect on player load
 local MainSaved = config.slider["example"]
 local Slider = MainTab:Slider({
     Title = "Your title",
