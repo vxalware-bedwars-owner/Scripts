@@ -1,8 +1,8 @@
--- loads Wind UI | Sets notifications lower
+--> load Wind UI & Sets notifications lower
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 WindUI:SetNotificationLower(false)
 
--- Window
+--> Window
 local Window = WindUI:CreateWindow({
     Title = "Example UI",
     Icon = "moon-star",
@@ -19,26 +19,32 @@ local Window = WindUI:CreateWindow({
     BackgroundImageTransparency = 0.42,
     HideSearchBar = false,
     ScrollBarEnabled = true,
-    
+
     User = {
         Enabled = true,
         Anonymous = false,
         Callback = function()
-            print("user check")
+            local Players = game:GetService("Players")
+            local player = Players.LocalPlayer
+            if player then
+                local username = player.Name
+                local displayName = player.DisplayName
+                print("Username: " .. username .. "\nDisplay Name: " .. displayName)
+            end
         end,
     },
-    
-    -- Optional: Can remove keysystem if you don't need
+
+    --> KeySystem
+    --> Optional: Can remove keysystem if you don't need
     KeySystem = { 
-        -- Put key here
-        Key = { "1234", "5678" },
-        Note = "Example Key System.",
-        URL = "https://pastebin.com/nXMnFUex",
-        SaveKey = true, -- automatically save and load the key.
+        Key = { "1234", "5678" }, -- Put key here
+        Note = "Example Key System.", -- Add message
+        URL = "https://pastebin.com/nXMnFUex", -- URL to get key
+        SaveKey = true, -- Automatically save and load the key.
     },
 })
 
--- Extras
+--> Configuration
 Window:SetToggleKey(Enum.KeyCode.K)
 Window:SetIconSize(26)
 Window:EditOpenButton({
@@ -55,14 +61,8 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
--- Main Tab
-local MainTab = Window:Tab({
-    Title = "Main",
-    Icon = "circle-user-round",
-    Locked = false,
-})
-
--- Section
+-- Main Tab & Section
+local MainTab = Window:Tab({ Title = "Main", Icon = "circle-user-round", })
 local Section = MainTab:Section({ 
     Title = "Section",
     Box = false,
@@ -102,9 +102,7 @@ local Dropdown = MainTab:Dropdown({
     Multi = true,
     AllowNone = true,
     Callback = function(option)
-        -- selected value
         print("Categories selected: " .. game:GetService("HttpService"):JSONEncode(option))
-        -- executes selected values
         if table.find(option, "...") then
             print("None")
         end
@@ -123,7 +121,7 @@ local Input = MainTab:Input({
     Desc = "An Input",
     Value = "Default value",
     InputIcon = "arrow-right",
-    Type = "Input", -- or "Textarea"
+    Type = "Input",
     Placeholder = "Enter text...",
     Callback = function(input) 
         print("text entered: " .. input)
@@ -143,12 +141,9 @@ local Slider = MainTab:Slider({
         local player = game.Players.LocalPlayer
         local character = player.Character or player.CharacterAdded:Wait()
         local humanoid = character:FindFirstChildOfClass("Humanoid")
-        
         if humanoid then
             humanoid.WalkSpeed = value
             print("WalkSpeed set to:", value)
-        else
-            warn("Humanoid not found")
         end
     end
 })
@@ -169,14 +164,8 @@ local Toggle = MainTab:Toggle({
     end
 })
 
--- Credits Tab
-local CreditsTab = Window:Tab({
-    Title = "Credits",
-    Icon = "crown",
-    Locked = false,
-})
-
--- Paragraph
+--> Credits Tab & Paragraph
+local CreditsTab = Window:Tab({ Title = "Credits", Icon = "crown", })
 local Paragraph = CreditsTab:Paragraph({
     Title = "Credits",
     Desc = "This example is made by SynthX. All credits go to footagesus for making this UI Library",
@@ -189,7 +178,9 @@ local Paragraph = CreditsTab:Paragraph({
         {
             Icon = "arrow-right",
             Title = "Ok",
-            Callback = function() print("Thanks for using!") end,
+            Callback = function()
+                print("Thanks for using!")
+            end,
         }
     }
 })
