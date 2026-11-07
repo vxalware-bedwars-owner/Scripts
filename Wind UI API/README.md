@@ -20,7 +20,7 @@ This API is designed to be simple, lightweight, and fully compatible with Wind U
 Display notifications for elements on success or failure.
 
 ### 2. `safeWriteConfig`
-Automatically saves and loads settings for supported UI elements.
+Automatically saves and loads settings for supported UI elements. (cause built-in one kinda hard to understand)
 
 ### 3. `Wind UI VC`
 Issues customizable code depending on whether the player is using an updated version of the script.
