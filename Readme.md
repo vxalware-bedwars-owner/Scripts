@@ -1,4 +1,4 @@
-**Scripts For Roblox**
+**Scripts and stuff**
 ----------------------------------------------------------------------------------------
 This is where I will be placing all scripts that randomly come into my mind and experiment with them.
 
