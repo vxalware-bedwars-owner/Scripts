@@ -223,7 +223,3 @@ The script has undergone iterative troubleshooting involving:
 - Contact editing and deletion-control detection.
 
 It has demonstrated successful probing and sequential deletion in the author's environment, but broader compatibility testing remains necessary.
-
-## License
-
-Choose and add an appropriate open-source licence before distributing this project. Until a licence is added, all rights are reserved by the copyright holder.
